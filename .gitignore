@@ -3,4 +3,4 @@
 *.exe
 *.node*
 xsel
-index.js
+/index.js
