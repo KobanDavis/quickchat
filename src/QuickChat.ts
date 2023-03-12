@@ -55,6 +55,7 @@ class QuickChat {
 	}
 
 	private async _getConnectedController() {
+		log.info('Searching for gamepads...')
 		const [name, controller] = await Promise.race(
 			Object.entries(this._providers).map(([name, controller]) => {
 				return new Promise<[string, Controller]>(async (resolve) => {
