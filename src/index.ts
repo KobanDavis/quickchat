@@ -1,7 +1,9 @@
-import { DualSenseController } from './controllers'
-import QuickChat from './quickchat'
+import { Controller, DualSenseController } from './controllers'
+import QuickChat from './QuickChat'
 
-const providers = {
-	ps5: new DualSenseController()
+const providers: Record<string, Controller> = {
+	DualSense: new DualSenseController()
 }
-const qc = new QuickChat()
+
+const qc = new QuickChat(providers)
+qc.start()
