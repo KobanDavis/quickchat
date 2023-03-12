@@ -9,8 +9,9 @@
 	},
 	"main": "dist/index.js",
 	"scripts": {
-		"package": "pkg index.js -t node16-win-x64 --config package.json",
-		"build": "ncc build src/index.js -o .",
+		"package": "cd dist && pkg index.js -t node16-win-x64 --config ../package.json && cd ../",
+		"transpile": "rimraf dist && tsc",
+		"build": "cd dist && ncc build index.js -o . && yarn package && cd ../",
 		"dev": "nodemon src/index.js"
 	},
 	"dependencies": {
@@ -21,7 +22,8 @@
 	"devDependencies": {
 		"@vercel/ncc": "^0.36.1",
 		"nodemon": "^2.0.21",
-		"pkg": "^5.8.1"
+		"pkg": "^5.8.1",
+		"rimraf": "^4.4.0"
 	},
 	"version": "0.1.0"
 }

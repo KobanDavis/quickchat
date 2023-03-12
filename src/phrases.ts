@@ -1,6 +1,6 @@
-const fs = require('fs')
-const defaultPhrases = require('./phrases.json')
-const path = require('path')
+import defaultPhrases from './phrases.json'
+import fs from 'fs'
+import path from 'path'
 
 const getPhrases = () => {
 	const filepath = path.join(process.cwd(), 'phrases.json')
@@ -14,4 +14,4 @@ const getPhrases = () => {
 	}
 }
 
-module.exports = getPhrases
+export default getPhrases

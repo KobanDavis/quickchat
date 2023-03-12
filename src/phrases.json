@@ -1,7 +1,15 @@
 {
 	"up": {
-		"up": ["My ball.", "I said it's mine!", "I'm there.", "Move aside.", "I've got the ball."],
-		"left": ["Tank is empty.", "Boost total dropped to critical levels.", "Why does the boost total say 0?", "12 boost and a dream."],
+		"up": ["My ball.", "It's mine!", "I'm there.", "Move aside.", "I've got the ball.", "Let me get it!"],
+		"left": [
+			"Tank is empty.",
+			"Boost total dropped to critical levels.",
+			"Why does the boost total say 0?",
+			"12 boost and a dream.",
+			"If I had boost I'd be using it.",
+			"Pathing for smallies.",
+			"If I wait long enough my boost will recharge."
+		],
 		"right": ["All yours.", "Your ball.", "Keep chasing.", "You've got it."],
 		"down": ["I'm over here.", "Pass the ball!", "Right here!", "Cross the ball!"]
 	},
