@@ -1,24 +1,22 @@
-name: Build 
-
+name: Build
 on:
-  push:
-   tags:
-     - "*.*.*" 
-
+  push:
+    tags:
+      - "v*.*.*"
 jobs:
-  build:    
+  build:
     runs-on: windows-latest
     steps:
-   - uses: actions/checkout@v3
-   - name: Use Node.js ${{ matrix.node-version }}
-     uses: actions/setup-node@v3
-     with:
-       node-version: 16.x
-       cache: 'npm'
-   - run: yarn install
-   - run: yarn transpile && yarn build
-   - name: Release
-     uses: softprops/action-gh-release@v1
-     with:
-       files: |
-         dist/*.exe
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: "npm"
+      - run: yarn install
+      - run: yarn transpile && yarn build
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/*.exe
