@@ -36,5 +36,5 @@ $ yarn build && yarn package
 
 # Limitations
 
-Currently only dualsense (PS5) controllers are supported. This is because this is the only controller I own.
-Normal quick chat becomes disabled. If I can figure a way to "preventDefault" controller inputs, then this can be solved.
+Currently only dualsense (PS5) controllers and DualShock (PS4) controllers are supported. This is because this is the only controllers that have been contributed.
+Make sure to unbind the Rocket League quickchat keybindings.

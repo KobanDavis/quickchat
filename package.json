@@ -16,6 +16,7 @@
 	},
 	"dependencies": {
 		"@nut-tree/nut-js": "^3.1.1",
+		"@uspasojevic/dualshock4": "^1.0.0",
 		"dualsense-ts": "^5.1.8",
 		"node-hid": "^2.1.2"
 	},
