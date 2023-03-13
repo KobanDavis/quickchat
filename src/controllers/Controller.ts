@@ -5,7 +5,7 @@ abstract class Controller {
 	/**
 	 * Used for controller discovery. The implementation should resolve the promise when the controller is found / connected.
 	 */
-	public async discover(): Promise<void> {}
+	public async discover(race: Promise<any>): Promise<void> {}
 	/**
 	 * Used to pass controller dpad input back to the quickchat class. The implementation should call the handler function whenever a dpad direction is pressed.
 	 * @param handler The `QuickChat.onDpadInput` function.

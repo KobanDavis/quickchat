@@ -38,7 +38,7 @@ class DualSenseController implements Controller {
 		this._controller.rumble(0)
 	}
 
-	public setDpadInputHandler(handler: (input: Direction) => void): void {
+	public setDpadInputHandler(handler: DPadInputHandler): void {
 		this._dpadInputHandler = handler
 	}
 }

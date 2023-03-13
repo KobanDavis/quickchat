@@ -15,8 +15,11 @@ function timestamp() {
 	return date
 }
 
+const consoleLog = console.log
+console.log = () => {} // surpress annoying messages from other libraries
+
 const log = {
-	info: (...logs: any[]) => console.log(`[${timestamp()}]`, '\x1b[38;5;6m[INFO]\x1b[0m', ...logs),
-	error: (...logs: any[]) => console.log(`[${timestamp()}]`, '\x1b[38;5;1m[ERROR]\x1b[0m', ...logs)
+	info: (...logs: any[]) => consoleLog(`[${timestamp()}]`, '\x1b[38;5;6m[INFO]\x1b[0m', ...logs),
+	error: (...logs: any[]) => consoleLog(`[${timestamp()}]`, '\x1b[38;5;1m[ERROR]\x1b[0m', ...logs)
 }
 export { sleep, log, timestamp }

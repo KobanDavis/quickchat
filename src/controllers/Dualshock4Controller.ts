@@ -1,44 +1,47 @@
-import { DualShock } from '@uspasojevic/dualshock4'
-import { Direction } from '../types';
-import Controller, { DPadInputHandler } from './Controller';
+import { DualShock, DualShockState } from '@uspasojevic/dualshock4'
+import { Direction } from '../types'
+import Controller, { DPadInputHandler } from './Controller'
 
 class DualShock4Controller implements Controller {
-	private _controller: DualShock;
+	private _controller: DualShock
 	private _dpadInputHandler: DPadInputHandler = null
-	private _oldDpadState = {
-		up: false,
-		down: false,
-		left: false,
-		right: false,
+	private _lastEvent: Partial<DualShockState> = {}
+
+	private _handleEvent(_newEvent: Partial<DualShockState>) {
+		if (!_newEvent.dPadUp && this._lastEvent.dPadUp) {
+			this._dpadInputHandler?.('up')
+		} else if (!_newEvent.dPadDown && this._lastEvent.dPadDown) {
+			this._dpadInputHandler?.('down')
+		} else if (!_newEvent.dPadLeft && this._lastEvent.dPadLeft) {
+			this._dpadInputHandler?.('left')
+		} else if (!_newEvent.dPadRight && this._lastEvent.dPadRight) {
+			this._dpadInputHandler?.('right')
+		}
+
+		this._lastEvent = _newEvent
 	}
-	public discover(): Promise<void> {
-		return new Promise(async resolve => {
+
+	public discover(race: Promise<any>): Promise<void> {
+		return new Promise((resolve) => {
 			this._controller = new DualShock({
 				vendorID: 1356,
-				productID: 1476,
-			});
-			this._controller.state.subscribe(event => {
-				if (event.dPadUp === false && this._oldDpadState.up === true) {
-					this._dpadInputHandler?.('up')
-				}
-				else if (event.dPadDown === false && this._oldDpadState.down === true) {
-					this._dpadInputHandler?.('down')
-				}
-				else if (event.dPadLeft === false && this._oldDpadState.left === true) {
-					this._dpadInputHandler?.('left')
-				}
-				else if (event.dPadRight === false && this._oldDpadState.right === true) {
-					this._dpadInputHandler?.('right')
-				}
-				this._oldDpadState = {
-					up: event.dPadUp,
-					down: event.dPadDown,
-					left: event.dPadLeft,
-					right: event.dPadRight,
-				};
+				productID: 1476
 			})
-			this._controller.connect();
-			resolve()
+
+			this._controller.state.subscribe(this._handleEvent.bind(this))
+
+			const discoveryInterval = setInterval(() => {
+				this._controller.connect()
+				if (this._controller.state.value.timestamp) {
+					resolve()
+				}
+			}, 1000)
+
+			// cleanup if other controller found
+			race.then(() => {
+				clearInterval(discoveryInterval)
+				this._controller.state.unsubscribe()
+			})
 		})
 	}
 
@@ -50,7 +53,7 @@ class DualShock4Controller implements Controller {
 		return Promise.resolve()
 	}
 
-	public setDpadInputHandler(handler: (input: Direction) => void): void {
+	public setDpadInputHandler(handler: DPadInputHandler): void {
 		this._dpadInputHandler = handler
 	}
 }

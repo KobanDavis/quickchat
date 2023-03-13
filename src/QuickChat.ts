@@ -50,20 +50,26 @@ class QuickChat {
 		await keyboard.type(message)
 		// send
 		await keyboard.type(Key.Enter)
-		console.log([first, second], message)
+		log.info([first, second], message)
 		this._typing = false
 	}
 
 	private async _getConnectedController() {
 		log.info('Searching for gamepads...')
+
+		// allows controller implementations to know they lost the race to connect
+		let finish: Function
+		const racePromise = new Promise((resolve) => (finish = resolve))
+
 		const [name, controller] = await Promise.race(
 			Object.entries(this._providers).map(([name, controller]) => {
 				return new Promise<[string, Controller]>(async (resolve) => {
-					await controller.discover()
+					await controller.discover(racePromise)
 					resolve([name, controller])
 				})
 			})
 		)
+		finish()
 		log.info('Gamepad connected:', name)
 		return controller
 	}
