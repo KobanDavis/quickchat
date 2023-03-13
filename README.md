@@ -6,7 +6,7 @@ Multiple phrases are able to be configured per 2 dpad inputs, as you'd normally 
 # Usage
 
 1. From the release page, download `quickchat.exe`.
-2. In rocket league, make sure to disable quick chat. This stops double messaging.
+2. In rocket league, make sure to disable quick chat controller bindings. This stops double messaging.
 3. Run the `.exe` file. Windows defender might stop you from running the file, so click more info & run anyway.
 4. The application will search for any connected dualsense controllers, both wired and wireless, and will rumble when connected.
 
