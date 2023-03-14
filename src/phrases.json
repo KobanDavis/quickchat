@@ -1,6 +1,6 @@
 {
 	"up": {
-		"up": ["My ball.", "It's mine!", "I'm there.", "Move aside.", "I've got the ball.", "Let me get it!"],
+		"up": ["My ball.", "It's mine!", "I'm there.", "Move aside.", "I've got the ball.", "Let me get it!", "I'm on it!", "I can get there."],
 		"left": [
 			"Tank is empty.",
 			"Boost total dropped to critical levels.",
@@ -8,10 +8,11 @@
 			"12 boost and a dream.",
 			"If I had boost I'd be using it.",
 			"Pathing for smallies.",
-			"If I wait long enough my boost will recharge."
+			"If I wait long enough my boost will recharge.",
+			"Need to sit on a boost pad, BRB."
 		],
-		"right": ["All yours.", "Your ball.", "Keep chasing.", "You've got it."],
-		"down": ["I'm over here.", "Pass the ball!", "Right here!", "Cross the ball!"]
+		"right": ["All yours.", "Your ball.", "Keep chasing.", "You've got it.", "Go on!", "That ball has your name written on it."],
+		"down": ["I'm over here.", "Pass the ball!", "Right here!", "Cross the ball!", "Infield!", "To me!", "I'm here!"]
 	},
 	"left": {
 		"up": [
@@ -22,13 +23,10 @@
 			"Does it count?",
 			"Stop the count!",
 			"Yeeeeeeees!",
-			"We are the champions!",
 			"Save the replay!",
 			"Insane display of mechanics.",
 			"Wonderful combination.",
 			"This is art.",
-			"Assist > goal.",
-			"Amazing assist!",
 			"Textbook.",
 			"Extraordinary shooting skills!",
 			"He makes it look so easy.",
@@ -39,12 +37,13 @@
 			"Indeed, a wise choice!",
 			"Again and again.",
 			"Booooooom.",
-			"This was a BANGER!",
-			"A laser beam.",
+			"That was a banger!",
+			"A laser beam of a shot.",
 			"Non-stop bangers!",
-			"Excellent display of skill."
+			"Excellent display of skill.",
+			"Hit ball, score goal."
 		],
-		"left": ["Great pass!", "An absolute dime.", "Team work makes the dream work.", "Look at the pass!"],
+		"left": ["Great pass!", "An absolute dime.", "Team work makes the dream work.", "Look at the pass!", "Assist > goal.", "Amazing assist!"],
 		"right": ["Thanks!", "Anytime!", "That's what I'm here for.", "Thank you!"],
 		"down": [
 			"What an amazing save!",
@@ -57,10 +56,7 @@
 			"Saved from the goal line!",
 			"Too slow...",
 			"It was not meant to be.",
-			"Hallelujah.",
-			"Where is the accuracy?",
-			"Yikes...",
-			"That was on target?"
+			"Hallelujah."
 		]
 	},
 	"right": {
@@ -93,7 +89,17 @@
 			"Has the game continued?",
 			"Does that count?"
 		],
-		"down": ["Close one!", "What is he doing?", "Where is he going?", "Not even close."]
+		"down": [
+			"Close one!",
+			"What is he doing?",
+			"Where is he going?",
+			"Where is the accuracy?",
+			"That was on target?",
+			"Not even close.",
+			"Yikes...",
+			"Try hitting the ball!",
+			"You call that trying?"
+		]
 	},
 	"down": {
 		"up": [
@@ -111,11 +117,12 @@
 		],
 		"left": [
 			"be careful!",
+			"The comeback is on.",
 			"There is still time on the clock!",
-			"Now I turn on my monitor!",
-			"Now I will use both hands!",
+			"Now I'll turn on my monitor!",
+			"Now I'll use both hands!",
 			"We are nearly there.",
-			"Now it is our turn!",
+			"Now it's our turn!",
 			"Rome was not built in a day!",
 			"There is still light in the dark.",
 			"Trust me. We can do this!",
