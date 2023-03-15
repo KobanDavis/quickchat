@@ -1,5 +1,4 @@
 import { DualShock, DualShockState } from '@uspasojevic/dualshock4'
-import { Direction } from '../types'
 import Controller, { DPadInputHandler } from './Controller'
 
 class DualShock4Controller implements Controller {

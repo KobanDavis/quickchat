@@ -1,11 +1,10 @@
-import fs from 'fs'
-import path from 'path'
-import defaultPhrases from './phrases.json'
+import PhraseLoader from './PhraseLoader'
+import { execSync } from 'node:child_process'
 import { Key, keyboard } from '@nut-tree/nut-js'
 import { Controller } from './controllers'
 import { log } from './utils'
+
 import type { Direction, Phrases } from './types'
-import { execSync } from 'child_process'
 
 keyboard.config.autoDelayMs = 0
 
@@ -16,20 +15,9 @@ class QuickChat {
 	private _clearBufferTimeout: NodeJS.Timeout = null
 	private _dpadInputBuffer: Direction[] = []
 	private _bindingsEnabled: boolean = null
+	private _phraseLoader: PhraseLoader = new PhraseLoader()
 
 	constructor(private _providers: Record<string, Controller>) {}
-
-	private _loadPhrases() {
-		const filepath = path.join(process.cwd(), 'phrases.json')
-		try {
-			const userPhrases = fs.readFileSync(filepath)
-			log.info('Using custom phrases from:', filepath)
-			return JSON.parse(userPhrases.toString())
-		} catch {
-			log.info(`Could not find phrases file at: '${filepath}', Using default phrases.`)
-			return defaultPhrases
-		}
-	}
 
 	private _clearBuffer() {
 		this._dpadInputBuffer = []
@@ -37,19 +25,20 @@ class QuickChat {
 
 	private _sendMessage = async ([first, second]: Direction[]) => {
 		this._typing = true
-		const messageArray = this._phrases[first][second]
-		const message = messageArray[Math.floor(Math.random() * messageArray.length)]
+		const messageArray = this._phrases?.[first]?.[second]
+		const message = messageArray?.[Math.floor(Math.random() * messageArray.length)]
 
 		clearTimeout(this._clearBufferTimeout)
 		this._clearBuffer()
 
-		// open chat
-		await keyboard.type('t')
-		await new Promise((r) => setTimeout(r, 10))
-		// type message
-		await keyboard.type(message)
-		// send
-		await keyboard.type(Key.Enter)
+		if (message) {
+			// open chat
+			await keyboard.type('t')
+			await new Promise((r) => setTimeout(r, 10))
+			await keyboard.type(message)
+			await keyboard.type(Key.Enter)
+		}
+
 		log.info([first, second], message)
 		this._typing = false
 	}
@@ -116,7 +105,7 @@ class QuickChat {
 	}
 
 	public async start() {
-		this._phrases = await this._loadPhrases()
+		this._phrases = await this._phraseLoader.getPhrases()
 		this._controller = await this._getConnectedController()
 
 		await this._controller.init()

@@ -12,7 +12,7 @@
 		"package": "cd dist && pkg index.js -t node16-win-x64 --config ../package.json && cd ../",
 		"transpile": "rimraf dist && tsc",
 		"build": "cd dist && ncc build index.js -o . && yarn package && cd ../",
-		"dev": "nodemon src/index.ts"
+		"dev": "nodemon src/index.ts --no-stdin"
 	},
 	"dependencies": {
 		"@nut-tree/nut-js": "^3.1.1",
