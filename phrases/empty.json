@@ -1,0 +1,26 @@
+{
+	"up": {
+		"up": [],
+		"left": [],
+		"right": [],
+		"down": []
+	},
+	"left": {
+		"up": [],
+		"left": [],
+		"right": [],
+		"down": []
+	},
+	"right": {
+		"up": [],
+		"left": [],
+		"right": [],
+		"down": []
+	},
+	"down": {
+		"up": [],
+		"left": [],
+		"right": [],
+		"down": []
+	}
+}
