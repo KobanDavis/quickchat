@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { log } from './utils'
-import defaultPhrases from './phrases/default.json'
+import defaultPhrases from './defaultPhrases.json'
 import TerminalPrompt from './TerminalPrompt'
 import { Phrases } from './types'
 

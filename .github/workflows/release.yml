@@ -20,3 +20,4 @@ jobs:
         with:
           files: |
             dist/quickchat.exe
+            phrases/*.json
