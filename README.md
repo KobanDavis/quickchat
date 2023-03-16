@@ -7,7 +7,7 @@ Multiple phrases are able to be configured per 2 dpad inputs, as you'd normally 
 
 To get started with quickchat, follow these steps:
 
-1. Make sure that [your controller is supported](#supported-controllers).**
+1. Make sure that [your controller is supported](#supported-controllers).
 2. From the [release](https://github.com/KobanDavis/quickchat/releases) page, download the latest version of `quickchat.exe`.
 3. In rocket league, make sure to disable the 4 quick chat controller bindings. This stops double messaging.
 4. Run the `.exe` file. Windows defender might stop you from running the file, so click more info & run anyway.
