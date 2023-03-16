@@ -8,11 +8,11 @@ Multiple phrases are able to be configured per 2 dpad inputs, as you'd normally 
 To get started with quickchat, follow these steps:
 
 1. Make sure that [your controller is supported](#supported-controllers).
-2. From the [release](https://github.com/KobanDavis/quickchat/releases) page, download the latest version of `quickchat.exe`.
-3. In rocket league, make sure to disable the 4 quick chat controller bindings. This stops double messaging.
+2. From the [releases](https://github.com/KobanDavis/quickchat/releases) page, download the latest version of `quickchat.exe`.
+3. In Rocket League, make sure to disable the 4 quick chat controller bindings. This stops double messaging.
 4. Run the `.exe` file. Windows defender might stop you from running the file, so click more info & run anyway.
 5. The application will search for any connected controllers, both wired and wireless, and will (attempt to) rumble when connected.
-6. Run rocket league. This will enable the bindings to work.
+6. Run Rocket League. This will enable the bindings to work.
 
 From here the D-Pad inputs will work from anywhere and input text wherever it can, so try not to navigate menu screens with the dpad.
 
