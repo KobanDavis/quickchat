@@ -24,7 +24,9 @@ class PhraseLoader {
 			log.info('Using phrases from:', filepath)
 			return JSON.parse(userPhrases.toString())
 		} catch {
-			log.info(`Could not find phrases file at: '${filepath}', Using default phrases.`)
+			log.error(`Error reading phrase file at: '${filepath}'.`)
+			log.error('Ensure the file contains valid JSON.')
+			log.info('Using default phrases.')
 			return defaultPhrases
 		}
 	}
