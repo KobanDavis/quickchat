@@ -36,10 +36,9 @@ class DualShock4Controller implements Controller {
 				}
 			}, 1000)
 
-			// cleanup if other controller found
+			// cleanup once controller is found
 			race.then(() => {
 				clearInterval(discoveryInterval)
-				this._controller.state.unsubscribe()
 			})
 		})
 	}
